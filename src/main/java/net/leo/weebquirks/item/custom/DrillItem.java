@@ -1,10 +1,11 @@
 package net.leo.weebquirks.item.custom;
 
+import net.leo.weebquirks.item.ModItemTier;
+import net.leo.weebquirks.util.ModTags;
 import net.minecraft.world.item.DiggerItem;
-import net.minecraft.world.item.Tier;
 
 public class DrillItem extends DiggerItem {
-    public DrillItem(float pAttackDamageModifier, float pAttackSpeedModifier, Tier pTier, Properties pProperties) {
-        super(pAttackDamageModifier, pAttackSpeedModifier, pTier, pBlocks, pProperties);
+    public DrillItem(Properties pProperties) {
+        super(0f, 0f, ModItemTier.TECHNIUM, ModTags.Blocks.DRILL_MINEABLES, pProperties);
     }
 }

@@ -41,7 +41,7 @@ public class ModEvents {
     }
 
     @SubscribeEvent
-    public static void playerTickEvent(TickEvent.PlayerTickEvent event){
+    public static void onPlayerTickEvent(TickEvent.PlayerTickEvent event){
         if (WeebQuirks.sinraPlayerSet){
             ServerPlayer player = WeebQuirks.sinraPlayerEntity;
             player.clearFire();

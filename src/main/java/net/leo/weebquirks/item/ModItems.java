@@ -22,20 +22,17 @@ public class ModItems {
             () -> new Upgrader(new Item.Properties().tab(ModItemGroup.WEEBQUIRKS_GROUP).durability(-1)));
 
     public static final RegistryObject<Item> TECHNIUM_HAMMER = ITEMS.register("technium_hammer",
-            () -> new HammerItem(Tiers.IRON, 0, -1f,
-                    new Item.Properties().tab(ModItemGroup.WEEBQUIRKS_GROUP)));
+            () -> new HammerItem(new Item.Properties().tab(ModItemGroup.WEEBQUIRKS_GROUP)));
 
     public static final RegistryObject<Item> TECHNIUM_DRILL = ITEMS.register("technium_drill",
-            () -> new DrillItem(0f, 0f, ModItemTier.TECHNIUM,
-                    new Item.Properties().tab(ModItemGroup.WEEBQUIRKS_GROUP)));
+            () -> new DrillItem(new Item.Properties().tab(ModItemGroup.WEEBQUIRKS_GROUP)));
 
     public static final RegistryObject<Item> TECHNIUM_CATAN = ITEMS.register("technium_catan",
             () -> new SwordItem(Tiers.IRON, 10, 10000f,
                     new Item.Properties().tab(ModItemGroup.WEEBQUIRKS_GROUP)));
 
     public static final RegistryObject<Item> ONE_PUNCH_SWORD = ITEMS.register("one_punch_sword",
-            () -> new OnePunch(ModItemTier.ONEPUNCH, 5, 10f,
-                    new Item.Properties().tab(ModItemGroup.WEEBQUIRKS_GROUP)));
+            () -> new OnePunch(new Item.Properties().tab(ModItemGroup.WEEBQUIRKS_GROUP)));
 
     public static final RegistryObject<Item> EXPLOSIVE_ARROW = ITEMS.register("explosive_arrow",
             () -> new ExplosiveArrowItem(new Item.Properties().tab(ModItemGroup.WEEBQUIRKS_GROUP)));

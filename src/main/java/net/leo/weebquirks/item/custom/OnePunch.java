@@ -1,13 +1,15 @@
 package net.leo.weebquirks.item.custom;
 
+import net.leo.weebquirks.item.ModItemTier;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.SwordItem;
+import net.minecraft.world.item.Tier;
 
 public class OnePunch extends SwordItem {
     public long useTime = 0;
-    public OnePunch(IItemTier tier, int attackDamageIn, float attackSpeedIn, Properties builderIn) {
-        super(tier, attackDamageIn, attackSpeedIn, builderIn);
+    public OnePunch(Properties builderIn) {
+        super(ModItemTier.ONEPUNCH, 5, 10f, builderIn);
     }
 
     @Override
