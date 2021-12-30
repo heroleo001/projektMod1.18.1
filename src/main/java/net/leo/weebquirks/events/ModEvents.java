@@ -46,7 +46,7 @@ public class ModEvents {
             ServerPlayer player = WeebQuirks.sinraPlayerEntity;
             player.clearFire();
             if (WeebQuirks.sinraPlayerEntity.getPersistentData().getBoolean(WeebQuirks.MOD_ID + "flameActive")){
-                BlockPos pos = player.getOnPos();
+                BlockPos pos = player.getOnPos().above();
                 Level world = player.getLevel();
 
                 if (world.getBlockState(pos).getBlock() != Blocks.WATER && world.getBlockState(pos).getBlock() != Blocks.LAVA){
