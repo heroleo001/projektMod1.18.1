@@ -4,6 +4,8 @@ import net.leo.weebquirks.WeebQuirks;
 import net.leo.weebquirks.commands.*;
 import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerPlayer;
+import net.minecraft.world.effect.MobEffectInstance;
+import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraftforge.event.RegisterCommandsEvent;
@@ -44,10 +46,15 @@ public class ModEvents {
     public static void onPlayerTickEvent(TickEvent.PlayerTickEvent event){
         if (WeebQuirks.sinraPlayerSet){
             ServerPlayer player = WeebQuirks.sinraPlayerEntity;
+
+            //player.kill
+
             player.clearFire();
             if (WeebQuirks.sinraPlayerEntity.getPersistentData().getBoolean(WeebQuirks.MOD_ID + "flameActive")){
                 BlockPos pos = player.getOnPos().above();
                 Level world = player.getLevel();
+
+                player.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SPEED, 1, 1, false, false));
 
                 if (world.getBlockState(pos).getBlock() != Blocks.WATER && world.getBlockState(pos).getBlock() != Blocks.LAVA){
                     world.setBlockAndUpdate(pos, Blocks.FIRE.defaultBlockState());
@@ -58,5 +65,7 @@ public class ModEvents {
             WeebQuirks.setSinraPlayerSet(false);
         }
     }
+
+
 
 }
