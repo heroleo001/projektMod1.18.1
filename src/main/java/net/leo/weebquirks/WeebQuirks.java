@@ -10,25 +10,20 @@ import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.MobSpawnType;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.item.enchantment.TridentRiptideEnchantment;
 import net.minecraftforge.client.ClientRegistry;
 import net.minecraftforge.client.event.InputEvent;
 import net.minecraftforge.client.settings.KeyConflictContext;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
-import net.minecraftforge.fml.InterModComms;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
-import net.minecraftforge.fml.event.lifecycle.InterModEnqueueEvent;
-import net.minecraftforge.fml.event.lifecycle.InterModProcessEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.lwjgl.glfw.GLFW;
-
-import java.util.stream.Collectors;
 
 // The value here should match an entry in the META-INF/mods.toml file
 @Mod(WeebQuirks.MOD_ID)
@@ -65,12 +60,6 @@ public class WeebQuirks
     public static boolean subaruPlayerSet = false;
 
 
-
-    public static ItemStack drill;
-    public static int HAS_NO_DRILL = 0;
-    public static int HAS_DRILL_ITEM = 1;
-    public static int drillMode;
-
     public static long erenTitanTime = 0;
     public static long subaruInvisTime = 0;
 
@@ -84,11 +73,6 @@ public class WeebQuirks
         ModItems.register(eventBus);
 
         eventBus.addListener(this::setup);
-        // Register the enqueueIMC method for modloading
-        eventBus.addListener(this::enqueueIMC);
-        // Register the processIMC method for modloading
-        eventBus.addListener(this::processIMC);
-        // Register the doClientStuff method for modloading
         eventBus.addListener(this::doClientStuff);
 
         ModTags.register();
@@ -99,9 +83,6 @@ public class WeebQuirks
 
     private void setup(final FMLCommonSetupEvent event)
     {
-        // some preinit code
-        LOGGER.info("HELLO FROM PREINIT");
-        LOGGER.info("DIRT BLOCK >> {}", Blocks.DIRT.getRegistryName());
 
     }
 
@@ -110,20 +91,6 @@ public class WeebQuirks
         ClientRegistry.registerKeyBinding(flameActivate);
         ClientRegistry.registerKeyBinding(activateSpeed);
         ClientRegistry.registerKeyBinding(activateInvisibility);
-    }
-
-    private void enqueueIMC(final InterModEnqueueEvent event)
-    {
-        // some example code to dispatch IMC to another mod
-        InterModComms.sendTo("weebqirks", "helloworld", () -> { LOGGER.info("Hello world from the MDK"); return "Hello world";});
-    }
-
-    private void processIMC(final InterModProcessEvent event)
-    {
-        // some example code to receive and process InterModComms from other mods
-        LOGGER.info("Got IMC {}", event.getIMCStream().
-                map(m->m.getMessageSupplier().get()).
-                collect(Collectors.toList()));
     }
 
 
@@ -148,9 +115,6 @@ public class WeebQuirks
     public static void setSimonPlayerEntity(ServerPlayer player){
         simonPlayerEntity = player;
         simonPlayerSet = true;
-    }
-    public static void setDrill(ItemStack drillItemStack){
-        drill = drillItemStack;
     }
     public static void setSimonPlayerSet(boolean bool){
         simonPlayerSet = bool;
@@ -260,6 +224,7 @@ public class WeebQuirks
             LOGGER.info("key pressed");
             if (subaruPlayerSet){
                 if (System.currentTimeMillis() - subaruInvisTime >= (1000* 5* 60)){
+
                     subaruPlayerEntity.addEffect(new MobEffectInstance(MobEffects.INVISIBILITY, (20* 30), 2, false, false));
                     subaruInvisTime = System.currentTimeMillis();
                 }

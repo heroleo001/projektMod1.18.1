@@ -10,7 +10,6 @@ import net.minecraft.network.chat.TextComponent;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.item.Item;
-import net.minecraft.world.level.block.Block;
 
 public class EraseAbilityCommand {
     public EraseAbilityCommand(CommandDispatcher<CommandSourceStack> dispatcher){
@@ -27,34 +26,32 @@ public class EraseAbilityCommand {
         boolean hasAbility = player.getPersistentData().getIntArray(WeebQuirks.MOD_ID + "ability").length != 0;
         System.out.println("1");
         if(hasAbility){
-            switch (player.getPersistentData().getIntArray(WeebQuirks.MOD_ID + "ability")[0]){
-                case 1:
+            switch (player.getPersistentData().getIntArray(WeebQuirks.MOD_ID + "ability")[0]) {
+                case 1 -> {
                     WeebQuirks.setSimonPlayerSet(false);
                     WeebQuirks.setSimonPlayerEntity(null);
-                    WeebQuirks.drillMode = WeebQuirks.HAS_NO_DRILL;
-                    break;
-                case 2:
+                }
+                case 2 -> {
                     WeebQuirks.setErenPlayerSet(false);
                     WeebQuirks.setErenPlayerEntity(null);
-                    break;
-                case 3:
-                    WeebQuirks.setSinraPlayerSet(false);
-                    break;
-                case 4:
+                }
+                case 3 -> WeebQuirks.setSinraPlayerSet(false);
+                case 4 -> {
                     WeebQuirks.setSenkuPlayerSet(false);
                     WeebQuirks.setSenkuPlayerEntity(null);
-                    break;
-                case 5:
+                }
+                case 5 -> {
                     WeebQuirks.setKorosenseiPlayerEntity(null);
                     WeebQuirks.setKorosenseiPlayerSet(false);
-                    break;
-                case 6:
+                }
+                case 6 -> {
                     WeebQuirks.setOnepunchmanPlayerEntity(null);
                     WeebQuirks.setOnepunchmanPlayerSet(false);
-                    break;
-                case 7:
+                }
+                case 7 -> {
                     WeebQuirks.setSubaruPlayerEntity(null);
                     WeebQuirks.setSubaruPlayerSet(false);
+                }
             }
 
             System.out.println("2");

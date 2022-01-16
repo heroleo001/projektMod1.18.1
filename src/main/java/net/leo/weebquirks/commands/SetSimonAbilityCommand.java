@@ -28,8 +28,6 @@ public class SetSimonAbilityCommand {
             WeebQuirks.createLog("Ability set");
             ItemStack drill = new ItemStack(ModItems.TECHNIUM_DRILL.get());
             player.getInventory().add(drill);
-            WeebQuirks.setDrill(drill);
-            WeebQuirks.drillMode = WeebQuirks.HAS_DRILL_ITEM;
 
             return 1;
         } else {
