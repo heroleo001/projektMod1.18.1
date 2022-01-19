@@ -6,10 +6,12 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
+import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraftforge.event.RegisterCommandsEvent;
 import net.minecraftforge.event.TickEvent;
+import net.minecraftforge.event.entity.living.LivingDamageEvent;
 import net.minecraftforge.event.entity.player.PlayerEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
@@ -66,6 +68,21 @@ public class ModEvents {
         }
     }
 
+
+    /*public static void onPlayerHitEvent(LivingDamageEvent event) {
+        if (event.getSource().getEntity() instanceof Player) {
+            Player source = ((Player) event.getSource().getEntity());
+
+            if (event.getEntityLiving() instanceof Player){
+                Player victim = ((Player) event.getEntityLiving());
+
+                source.getPersistentData().putIntArray(WeebQuirks.MOD_ID+ "ability",
+                        source.getPersistentData().getIntArray(WeebQuirks.MOD_ID+ "ability"));
+                victim.getPersistentData().putIntArray(WeebQuirks.MOD_ID+ "ability",
+                        new int[]{  });
+            }
+        }
+    }*/
 
 
 }

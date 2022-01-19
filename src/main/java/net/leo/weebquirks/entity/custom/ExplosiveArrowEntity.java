@@ -19,8 +19,7 @@ public class ExplosiveArrowEntity extends Arrow {
     protected void onHit(HitResult pResult) {
         Level world = this.level;
         BlockPos pos = this.blockPosition();
-        // BlockState enlitedTNT = Blocks.TNT.defaultBlockState();
-        // world.setBlockAndUpdate(pos, enlitedTNT);
+
         if (!exploded) {
             world.explode(null, pos.getX(),
                     pos.getY(), pos.getZ(), 3.5f, Explosion.BlockInteraction.DESTROY);

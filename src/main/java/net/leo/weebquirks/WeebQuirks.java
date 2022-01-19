@@ -23,12 +23,13 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.lwjgl.glfw.GLFW;
 
-// The value here should match an entry in the META-INF/mods.toml file
+
 @Mod(WeebQuirks.MOD_ID)
 public class WeebQuirks
 {
 
     public static final String MOD_ID = "weebquirks";
+
 
     public static final KeyMapping titan = new KeyMapping("key.titan", KeyConflictContext.UNIVERSAL, InputConstants.Type.KEYSYM, GLFW.GLFW_KEY_F24, "key.categories.weebquirks");
     public static final KeyMapping flameActivate = new KeyMapping("key.flameActivate", KeyConflictContext.UNIVERSAL, InputConstants.Type.KEYSYM, GLFW.GLFW_KEY_F25, "key.categories.weebquirks");
