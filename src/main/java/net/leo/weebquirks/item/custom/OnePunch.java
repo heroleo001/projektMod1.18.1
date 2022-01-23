@@ -4,7 +4,6 @@ import net.leo.weebquirks.item.ModItemTier;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.SwordItem;
-import net.minecraft.world.item.Tier;
 
 public class OnePunch extends SwordItem {
     public long useTime = 0;

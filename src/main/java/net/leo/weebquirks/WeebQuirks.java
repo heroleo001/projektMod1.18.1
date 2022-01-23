@@ -2,11 +2,8 @@ package net.leo.weebquirks;
 
 import com.mojang.blaze3d.platform.InputConstants;
 import net.leo.weebquirks.item.ModItems;
-import net.leo.weebquirks.screen.ModMenuTypes;
-import net.leo.weebquirks.screen.QuirksInventoryScreen;
 import net.leo.weebquirks.util.ModTags;
 import net.minecraft.client.KeyMapping;
-import net.minecraft.client.gui.screens.MenuScreens;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
@@ -64,6 +61,7 @@ public class WeebQuirks
 
     public static long erenTitanTime = 0;
     public static long subaruInvisTime = 0;
+    public static long onepunchmanHitTime = 0;
 
     // Directly reference a log4j logger.
     private static final Logger LOGGER = LogManager.getLogger();
@@ -76,10 +74,8 @@ public class WeebQuirks
 
         eventBus.addListener(this::setup);
         eventBus.addListener(this::doClientStuff);
-        eventBus.addListener(this::clientSetup);
 
         ModItems.register(eventBus);
-        ModMenuTypes.register(eventBus);
         ModTags.register();
 
         // Register ourselves for server and other game events we are interested in
@@ -89,10 +85,6 @@ public class WeebQuirks
     private void setup(final FMLCommonSetupEvent event)
     {
 
-    }
-
-    private void clientSetup(final FMLClientSetupEvent event){
-        MenuScreens.register(ModMenuTypes.QUIRKS_INVENTORY_MENU.get(), QuirksInventoryScreen::new);
     }
 
     private void doClientStuff(final FMLClientSetupEvent event) {
