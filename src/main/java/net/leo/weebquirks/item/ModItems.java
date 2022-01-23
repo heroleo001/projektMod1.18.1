@@ -37,6 +37,10 @@ public class ModItems {
     public static final RegistryObject<Item> EXPLOSIVE_ARROW = ITEMS.register("explosive_arrow",
             () -> new ExplosiveArrowItem(new Item.Properties().tab(ModItemGroup.WEEBQUIRKS_GROUP)));
 
+    public static final RegistryObject<Item> QUIRKS_INVENTORY = ITEMS.register("quirks_inventory",
+            () -> new QuirksInventoryItem(new Item.Properties().tab(ModItemGroup.WEEBQUIRKS_GROUP)));
+
+
 
 
 
