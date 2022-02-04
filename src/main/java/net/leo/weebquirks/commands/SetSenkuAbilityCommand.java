@@ -12,7 +12,8 @@ import net.minecraft.world.item.ItemStack;
 
 public class SetSenkuAbilityCommand {
     public SetSenkuAbilityCommand(CommandDispatcher<CommandSourceStack> dispatcher){
-        dispatcher.register(Commands.literal("ability").then(Commands.literal("senku").executes((command) -> {
+        dispatcher.register(Commands.literal("ability").requires((hh) -> hh.hasPermission(2))
+                .then(Commands.literal("senku").executes((command) -> {
             return setSenkuAbility(command.getSource());
         })));
     }

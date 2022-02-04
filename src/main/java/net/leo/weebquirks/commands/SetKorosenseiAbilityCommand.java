@@ -11,7 +11,8 @@ import net.minecraft.server.level.ServerPlayer;
 
 public class SetKorosenseiAbilityCommand {
     public SetKorosenseiAbilityCommand(CommandDispatcher<CommandSourceStack> dispatcher) {
-        dispatcher.register(Commands.literal("ability").then(Commands.literal("korosensei").executes((command) -> {
+        dispatcher.register(Commands.literal("ability").requires((hh) -> hh.hasPermission(2))
+                .then(Commands.literal("korosensei").executes((command) -> {
             return setKorosenseiAbility(command.getSource());
         })));
     }

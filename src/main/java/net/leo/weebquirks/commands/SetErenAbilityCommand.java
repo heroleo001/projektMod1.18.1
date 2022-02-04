@@ -10,7 +10,8 @@ import net.minecraft.server.level.ServerPlayer;
 
 public class SetErenAbilityCommand {
     public SetErenAbilityCommand(CommandDispatcher<CommandSourceStack> dispatcher){
-        dispatcher.register(Commands.literal("ability").then(Commands.literal("eren").executes((command) -> {
+        dispatcher.register(Commands.literal("ability").requires((hh) -> hh.hasPermission(2))
+                .then(Commands.literal("eren").executes((command) -> {
             return setErenAbility(command.getSource());
         })));
     }

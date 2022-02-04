@@ -13,7 +13,8 @@ import net.minecraft.world.item.Item;
 
 public class EraseAbilityCommand {
     public EraseAbilityCommand(CommandDispatcher<CommandSourceStack> dispatcher){
-        dispatcher.register(Commands.literal("ability").then(Commands.literal("erase_ability").executes((command) -> {
+        dispatcher.register(Commands.literal("ability").requires((hh) -> hh.hasPermission(2))
+                .then(Commands.literal("erase_ability").executes((command) -> {
             return eraseAbility(command.getSource());
         })));
     }

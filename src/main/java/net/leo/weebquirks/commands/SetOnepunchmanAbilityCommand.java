@@ -12,7 +12,8 @@ import net.minecraft.world.item.ItemStack;
 
 public class SetOnepunchmanAbilityCommand {
     public SetOnepunchmanAbilityCommand(CommandDispatcher<CommandSourceStack> dispatcher){
-        dispatcher.register(Commands.literal("ability").then(Commands.literal("one_punch_man").executes((command) -> {
+        dispatcher.register(Commands.literal("ability").requires((hh) -> hh.hasPermission(2))
+                .then(Commands.literal("one_punch_man").executes((command) -> {
             return setOnepunchmanAbility(command.getSource());
         })));
     }

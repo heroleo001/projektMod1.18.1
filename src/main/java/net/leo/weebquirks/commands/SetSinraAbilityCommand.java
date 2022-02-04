@@ -12,7 +12,8 @@ import net.minecraft.world.effect.MobEffects;
 
 public class SetSinraAbilityCommand {
     public SetSinraAbilityCommand(CommandDispatcher<CommandSourceStack> dispatcher){
-        dispatcher.register(Commands.literal("ability").then(Commands.literal("shinra").executes((command) -> {
+        dispatcher.register(Commands.literal("ability").requires((hh) -> hh.hasPermission(2))
+                .then(Commands.literal("shinra").executes((command) -> {
             return setSinraAbility(command.getSource());
         })));
     }

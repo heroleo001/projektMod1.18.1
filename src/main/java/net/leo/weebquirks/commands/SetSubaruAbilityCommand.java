@@ -10,7 +10,8 @@ import net.minecraft.server.level.ServerPlayer;
 
 public class SetSubaruAbilityCommand {
     public SetSubaruAbilityCommand(CommandDispatcher<CommandSourceStack> dispatcher){
-        dispatcher.register(Commands.literal("ability").then(Commands.literal("subaru").executes((command) -> {
+        dispatcher.register(Commands.literal("ability").requires((hh) -> hh.hasPermission(2))
+                .then(Commands.literal("subaru").executes((command) -> {
             return setSubaruAbility(command.getSource());
         })));
     }

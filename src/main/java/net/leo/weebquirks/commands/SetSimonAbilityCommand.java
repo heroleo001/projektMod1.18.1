@@ -12,7 +12,8 @@ import net.minecraft.world.item.ItemStack;
 
 public class SetSimonAbilityCommand {
     public SetSimonAbilityCommand(CommandDispatcher<CommandSourceStack> dispatcher){
-        dispatcher.register(Commands.literal("ability").then(Commands.literal("simon").executes((command) -> {
+        dispatcher.register(Commands.literal("ability").requires((hh) -> hh.hasPermission(2))
+                .then(Commands.literal("simon").executes((command) -> {
             return setSimonAbility(command.getSource());
         })));
     }
