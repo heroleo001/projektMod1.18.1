@@ -11,4 +11,11 @@ public class ModItemGroup {
             return new ItemStack(ModItems.TECHNIUMINGOT.get());
         }
     };
+
+    public static final CreativeModeTab WEEBQUIRKS_ACTIVATORS = new CreativeModeTab("weebquirks_activators") {
+        @Override
+        public ItemStack makeIcon() {
+            return new ItemStack(ModItems.SIMON_ACTIVATOR.get());
+        }
+    };
 }
