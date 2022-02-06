@@ -15,13 +15,22 @@ import net.minecraftforge.client.settings.KeyConflictContext;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
+import net.minecraftforge.fml.InterModComms;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
+import net.minecraftforge.fml.event.lifecycle.InterModEnqueueEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.lwjgl.glfw.GLFW;
+import top.theillusivec4.curios.api.SlotTypeMessage;
+import top.theillusivec4.curios.api.SlotTypePreset;
+
+import javax.swing.text.html.HTMLDocument;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Objects;
 
 
 @Mod(WeebQuirks.MOD_ID)
@@ -61,7 +70,6 @@ public class WeebQuirks
 
     public static long erenTitanTime = 0;
     public static long subaruInvisTime = 0;
-    public static long onepunchmanHitTime = 0;
 
     // Directly reference a log4j logger.
     private static final Logger LOGGER = LogManager.getLogger();
@@ -74,6 +82,7 @@ public class WeebQuirks
 
         eventBus.addListener(this::setup);
         eventBus.addListener(this::doClientStuff);
+        eventBus.addListener(this::enqueueIMC);
 
         ModItems.register(eventBus);
         ModTags.register();
@@ -92,6 +101,11 @@ public class WeebQuirks
         ClientRegistry.registerKeyBinding(flameActivate);
         ClientRegistry.registerKeyBinding(activateSpeed);
         ClientRegistry.registerKeyBinding(activateInvisibility);
+    }
+
+    private void enqueueIMC(final InterModEnqueueEvent event) {
+        InterModComms.sendTo("curios", SlotTypeMessage.REGISTER_TYPE,
+                () -> SlotTypePreset.CHARM.getMessageBuilder().build());
     }
 
 
@@ -222,13 +236,9 @@ public class WeebQuirks
         }
 
         if (WeebQuirks.activateInvisibility.isDown()){
-            LOGGER.info("key pressed");
+            LOGGER.info("invis key pressed");
             if (subaruPlayerSet){
-                if (System.currentTimeMillis() - subaruInvisTime >= (1000* 5* 60)){
 
-                    subaruPlayerEntity.addEffect(new MobEffectInstance(MobEffects.INVISIBILITY, (20* 30), 2, false, false));
-                    subaruInvisTime = System.currentTimeMillis();
-                }
             }
         }
     }
