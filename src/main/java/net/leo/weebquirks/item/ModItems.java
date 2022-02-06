@@ -2,6 +2,7 @@ package net.leo.weebquirks.item;
 
 import net.leo.weebquirks.WeebQuirks;
 import net.leo.weebquirks.item.custom.*;
+import net.leo.weebquirks.item.custom.activators.SimonActivator;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.SwordItem;
 import net.minecraft.world.item.Tiers;
@@ -36,6 +37,9 @@ public class ModItems {
 
     public static final RegistryObject<Item> EXPLOSIVE_ARROW = ITEMS.register("explosive_arrow",
             () -> new ExplosiveArrowItem(new Item.Properties().tab(ModItemGroup.WEEBQUIRKS_GROUP)));
+
+    public static final RegistryObject<Item> SIMON_ACTIVATOR = ITEMS.register("simon_activator",
+            () -> new SimonActivator(new Item.Properties().tab(ModItemGroup.WEEBQUIRKS_ACTIVATORS)));
 
 
 

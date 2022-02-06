@@ -1,7 +1,8 @@
 {
   "item.weebquirks.techniumingot": "Kúsok špirálnej energie",
 
-  "itemGroup.weebquirksgroup": "Weeb Quirks",
+  "itemGroup.weebquirksgroup": "WeebQuirks",
+  "itemGroup.weebquirks_activators": "WeebQuirks Aktivátory",
 
   "item.weebquirks.technium_drill": "Vtrák",
   "item.weebquirks.technium_catan": "Katana",
@@ -9,6 +10,8 @@
   "item.weebquirks.upgrader": "Kniha vedomostí",
   "item.weebquirks.one_punch_sword": "Supermeč",
   "item.weebquirks.explosive_arrow": "Výbušný Šíp",
+
+  "item.weebquirks.simon_activator": "Aktivátor Šimona",
 
   "key.titan": "Zmeniť sa na Titána",
   "key.categories.weebquirks": "Weeb Quirks",

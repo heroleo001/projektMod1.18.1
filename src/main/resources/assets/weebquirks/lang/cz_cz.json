@@ -1,7 +1,8 @@
 {
   "item.weebquirks.techniumingot": "Kousek spiralové energie",
 
-  "itemGroup.weebquirksgroup": "Weeb Quirks",
+  "itemGroup.weebquirksgroup": "WeebQuirks",
+  "itemGroup.weebquirks_activators": "Aktivátory WeebQuirks",
 
   "item.weebquirks.technium_drill": "Vrták",
   "item.weebquirks.technium_catan": "Katana",
@@ -10,6 +11,7 @@
   "item.weebquirks.one_punch_sword": "Supermeč",
   "item.weebquirks.explosive_arrow": "Výbušný Šíp",
 
+  "item.weebquirks.simon_activator": "Aktivátor Šimona",
 
   "key.titan": "Zmena na titána",
   "key.categories.weebquirks": "Weeb Quirks",

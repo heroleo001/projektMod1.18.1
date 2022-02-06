@@ -1,7 +1,8 @@
 {
   "item.weebquirks.techniumingot": "Spiral energy bit",
 
-  "itemGroup.weebquirksgroup": "Weeb Quirks",
+  "itemGroup.weebquirksgroup": "WeebQuirks",
+  "itemGroup.weebquirks_activators": "WeebQuirks Activators",
 
   "item.weebquirks.technium_drill": "Drill",
   "item.weebquirks.technium_catan": "Katana",
@@ -9,6 +10,8 @@
   "item.weebquirks.upgrader": "Knowledge Book",
   "item.weebquirks.one_punch_sword": "One Punch Glove",
   "item.weebquirks.explosive_arrow": "Explosive Arrow",
+
+  "item.weebquirks.simon_activator": "Simon Activator",
 
   "key.titan": "Turn into a Titan",
   "key.categories.weebquirks": "Weeb Quirks",
