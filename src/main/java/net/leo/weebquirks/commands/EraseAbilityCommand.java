@@ -9,6 +9,7 @@ import net.minecraft.commands.Commands;
 import net.minecraft.network.chat.TextComponent;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.effect.MobEffects;
+import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
 
 public class EraseAbilityCommand {
@@ -22,7 +23,7 @@ public class EraseAbilityCommand {
 
     //LIST  Abilities:  Simon=1,  Eren=2, Shinra=3, Senku=4, Korosensei=5, OnePunchMan=6, Subaru=7
 
-    private int eraseAbility(CommandSourceStack source) throws CommandSyntaxException {
+    public int eraseAbility(CommandSourceStack source) throws CommandSyntaxException {
         ServerPlayer player = source.getPlayerOrException();
         boolean hasAbility = player.getPersistentData().getIntArray(WeebQuirks.MOD_ID + "ability").length != 0;
         System.out.println("1");
