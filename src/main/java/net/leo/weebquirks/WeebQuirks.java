@@ -7,8 +7,10 @@ import net.minecraft.client.KeyMapping;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
-import net.minecraft.world.entity.EntityType;
-import net.minecraft.world.entity.MobSpawnType;
+import net.minecraft.world.entity.*;
+import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.phys.AABB;
+import net.minecraft.world.phys.Vec3;
 import net.minecraftforge.client.ClientRegistry;
 import net.minecraftforge.client.event.InputEvent;
 import net.minecraftforge.client.settings.KeyConflictContext;
@@ -18,7 +20,6 @@ import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.InterModComms;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
-import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.InterModEnqueueEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import org.apache.logging.log4j.LogManager;
@@ -27,10 +28,7 @@ import org.lwjgl.glfw.GLFW;
 import top.theillusivec4.curios.api.SlotTypeMessage;
 import top.theillusivec4.curios.api.SlotTypePreset;
 
-import javax.swing.text.html.HTMLDocument;
-import java.util.Iterator;
 import java.util.List;
-import java.util.Objects;
 
 
 @Mod(WeebQuirks.MOD_ID)
@@ -78,9 +76,6 @@ public class WeebQuirks
         // Register the setup method for modloading
         IEventBus eventBus = FMLJavaModLoadingContext.get().getModEventBus();
 
-
-
-        eventBus.addListener(this::setup);
         eventBus.addListener(this::doClientStuff);
         eventBus.addListener(this::enqueueIMC);
 
@@ -89,11 +84,6 @@ public class WeebQuirks
 
         // Register ourselves for server and other game events we are interested in
         MinecraftForge.EVENT_BUS.register(this);
-    }
-
-    private void setup(final FMLCommonSetupEvent event)
-    {
-
     }
 
     private void doClientStuff(final FMLClientSetupEvent event) {
@@ -106,6 +96,7 @@ public class WeebQuirks
     private void enqueueIMC(final InterModEnqueueEvent event) {
         InterModComms.sendTo("curios", SlotTypeMessage.REGISTER_TYPE,
                 () -> SlotTypePreset.CHARM.getMessageBuilder().build());
+
     }
 
 
@@ -202,7 +193,7 @@ public class WeebQuirks
                             EntityType.LIGHTNING_BOLT.spawn(erenPlayerEntity.getLevel(), null, erenPlayerEntity,
                                     erenPlayerEntity.blockPosition(), MobSpawnType.TRIGGERED, true, true);
                         }
-
+                        erenPlayerEntity.clearFire();
                         erenTitanTime = System.currentTimeMillis();
                     }
                 }
@@ -238,7 +229,18 @@ public class WeebQuirks
         if (WeebQuirks.activateInvisibility.isDown()){
             LOGGER.info("invis key pressed");
             if (subaruPlayerSet){
+                List<Entity> entityList = subaruPlayerEntity.level.getEntities(subaruPlayerEntity, AABB.ofSize(new Vec3(
+                        subaruPlayerEntity.getX(), subaruPlayerEntity.getY(), subaruPlayerEntity.getZ()
+                ), 10, 10, 10));
 
+                for (Entity entity : entityList) {
+                    System.out.println(entity.getName().getString());
+                    if (entity instanceof LivingEntity) {
+                        LivingEntity player = ((LivingEntity) entity);
+                        player.addEffect(new MobEffectInstance(MobEffects.LEVITATION, (20*20), 10));
+                        subaruPlayerEntity.addEffect(new MobEffectInstance(MobEffects.INVISIBILITY, (20*30), 10));
+                    }
+                }
             }
         }
     }
