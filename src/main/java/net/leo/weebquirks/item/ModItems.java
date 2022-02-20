@@ -32,7 +32,7 @@ public class ModItems {
             () -> new SwordItem(Tiers.IRON, 10, 10000f,
                     new Item.Properties().tab(ModItemGroup.WEEBQUIRKS_GROUP)));
 
-    public static final RegistryObject<Item> ONE_PUNCH_SWORD = ITEMS.register("one_punch_sword",
+    public static final RegistryObject<Item> ONE_PUNCH_SWORD = ITEMS.register("onepunch_glove",
             () -> new OnePunch(new Item.Properties().tab(ModItemGroup.WEEBQUIRKS_GROUP)));
 
     public static final RegistryObject<Item> EXPLOSIVE_ARROW = ITEMS.register("explosive_arrow",
