@@ -8,8 +8,8 @@ import net.minecraft.world.item.ItemStack;
 import top.theillusivec4.curios.api.SlotContext;
 import top.theillusivec4.curios.api.type.capability.ICurioItem;
 
-public class SimonActivator extends Item implements ICurioItem {
-    public SimonActivator(Properties properties) {
+public class ErenActivator extends Item implements ICurioItem {
+    public ErenActivator(Properties properties) {
         super(properties);
     }
 
@@ -18,15 +18,17 @@ public class SimonActivator extends Item implements ICurioItem {
         System.out.println("equipped");
         Player player = ((Player) slotContext.entity());
         if (player.getPersistentData().getIntArray(WeebQuirks.MOD_ID+ "ability").length != 0) {
-            if (!(player.getPersistentData().getIntArray(WeebQuirks.MOD_ID + "ability")[0] == 1)) {
-                AbilitySetters.setSimonAbility(player);
+            if (!(player.getPersistentData().getIntArray(WeebQuirks.MOD_ID + "ability")[0] == 2)) {
+                AbilitySetters.setErenAbility(player);
             }
         } else {
-            AbilitySetters.setSimonAbility(player);
+            AbilitySetters.setErenAbility(player);
         }
 
         ICurioItem.super.onEquip(slotContext, prevStack, stack);
     }
+
+
 
     @Override
     public void onUnequip(SlotContext slotContext, ItemStack newStack, ItemStack stack) {

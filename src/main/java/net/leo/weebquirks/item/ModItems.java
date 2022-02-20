@@ -2,7 +2,7 @@ package net.leo.weebquirks.item;
 
 import net.leo.weebquirks.WeebQuirks;
 import net.leo.weebquirks.item.custom.*;
-import net.leo.weebquirks.item.custom.activators.SimonActivator;
+import net.leo.weebquirks.item.custom.activators.*;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.SwordItem;
 import net.minecraft.world.item.Tiers;
@@ -38,8 +38,28 @@ public class ModItems {
     public static final RegistryObject<Item> EXPLOSIVE_ARROW = ITEMS.register("explosive_arrow",
             () -> new ExplosiveArrowItem(new Item.Properties().tab(ModItemGroup.WEEBQUIRKS_GROUP)));
 
+
+
     public static final RegistryObject<Item> SIMON_ACTIVATOR = ITEMS.register("simon_activator",
-            () -> new SimonActivator(new Item.Properties().tab(ModItemGroup.WEEBQUIRKS_ACTIVATORS)));
+            () -> new SimonActivator(new Item.Properties().tab(ModItemGroup.WEEBQUIRKS_ACTIVATORS).stacksTo(1)));
+
+    public static final RegistryObject<Item> EREN_ACTIVATOR = ITEMS.register("eren_activator",
+            () -> new ErenActivator(new Item.Properties().tab(ModItemGroup.WEEBQUIRKS_ACTIVATORS).stacksTo(1)));
+
+    public static final RegistryObject<Item> SINRA_ACTIVATOR = ITEMS.register("sinra_activator",
+            () -> new SinraActivator(new Item.Properties().tab(ModItemGroup.WEEBQUIRKS_ACTIVATORS).stacksTo(1)));
+
+    public static final RegistryObject<Item> KOROSENSEI_ACTIVATOR = ITEMS.register("korosensei_activator",
+            () -> new KororsenseiActivator(new Item.Properties().tab(ModItemGroup.WEEBQUIRKS_ACTIVATORS).stacksTo(1)));
+
+    public static final RegistryObject<Item> SENKU_ACTIVATOR = ITEMS.register("senku_activator",
+            () -> new SenkuActivator(new Item.Properties().tab(ModItemGroup.WEEBQUIRKS_ACTIVATORS).stacksTo(1)));
+
+    public static final RegistryObject<Item> ONEPUNCHMAN_ACTIVATOR = ITEMS.register("onepunchman_activator",
+            () -> new OnepunchmanActivator(new Item.Properties().tab(ModItemGroup.WEEBQUIRKS_ACTIVATORS).stacksTo(1)));
+
+    public static final RegistryObject<Item> SUBARU_ACTIVATOR = ITEMS.register("subaru_activator",
+            () -> new SubaruActivator(new Item.Properties().tab(ModItemGroup.WEEBQUIRKS_ACTIVATORS).stacksTo(1)));
 
 
 
