@@ -1,6 +1,12 @@
 {
   "replace": false,
   "values": [
-    "weebquirks:simon_activator"
+    "weebquirks:simon_activator",
+    "weebquirks:eren_activator",
+    "weebquirks:sinra_activator",
+    "weebquirks:senku_activator",
+    "weebquirks:korosensei_activator",
+    "weebquirks:onepunchman_activator",
+    "weebquirks:subaru_activator"
   ]
 }
