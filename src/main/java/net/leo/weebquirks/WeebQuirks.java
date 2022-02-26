@@ -4,11 +4,11 @@ import com.mojang.blaze3d.platform.InputConstants;
 import net.leo.weebquirks.item.ModItems;
 import net.leo.weebquirks.util.ModTags;
 import net.minecraft.client.KeyMapping;
+import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.*;
-import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.phys.AABB;
 import net.minecraft.world.phys.Vec3;
 import net.minecraftforge.client.ClientRegistry;
@@ -29,6 +29,7 @@ import top.theillusivec4.curios.api.SlotTypeMessage;
 import top.theillusivec4.curios.api.SlotTypePreset;
 
 import java.util.List;
+import java.util.Random;
 
 
 @Mod(WeebQuirks.MOD_ID)
@@ -84,6 +85,7 @@ public class WeebQuirks
 
         // Register ourselves for server and other game events we are interested in
         MinecraftForge.EVENT_BUS.register(this);
+
     }
 
     private void doClientStuff(final FMLClientSetupEvent event) {
@@ -237,10 +239,10 @@ public class WeebQuirks
                     System.out.println(entity.getName().getString());
                     if (entity instanceof LivingEntity) {
                         LivingEntity player = ((LivingEntity) entity);
-                        player.addEffect(new MobEffectInstance(MobEffects.LEVITATION, (20*20), 10));
-                        subaruPlayerEntity.addEffect(new MobEffectInstance(MobEffects.INVISIBILITY, (20*30), 10));
+                        player.addEffect(new MobEffectInstance(MobEffects.BLINDNESS , (20*20), 10));
                     }
                 }
+                subaruPlayerEntity.addEffect(new MobEffectInstance(MobEffects.INVISIBILITY, (20*30), 10));
             }
         }
     }
