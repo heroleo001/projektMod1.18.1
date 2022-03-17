@@ -1,6 +1,7 @@
 package net.leo.weebquirks.item.custom;
 
 import net.leo.weebquirks.item.ModItemTier;
+import net.leo.weebquirks.item.ModItems;
 import net.leo.weebquirks.util.ModTags;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResultHolder;
@@ -10,6 +11,7 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.projectile.ThrownEnderpearl;
 import net.minecraft.world.item.DiggerItem;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.Items;
 import net.minecraft.world.level.Level;
 
 public class DrillItem extends DiggerItem {
@@ -22,7 +24,7 @@ public class DrillItem extends DiggerItem {
     public InteractionResultHolder<ItemStack> use(Level pLevel, Player pPlayer, InteractionHand pUsedHand) {
         if (!pLevel.isClientSide) {
             ThrownEnderpearl thrownenderpearl = new ThrownEnderpearl(pLevel, pPlayer);
-            thrownenderpearl.setItem(pPlayer.getItemInHand(pUsedHand));
+            thrownenderpearl.setItem(new ItemStack(ModItems.TECHNIUMINGOT.get()));
             thrownenderpearl.shootFromRotation(pPlayer, pPlayer.getXRot(), pPlayer.getYRot(), 0.0F, 1.5F, 1.0F);
             pLevel.addFreshEntity(thrownenderpearl);
             pPlayer.addEffect(new MobEffectInstance(MobEffects.DAMAGE_RESISTANCE, (5*20), 20));

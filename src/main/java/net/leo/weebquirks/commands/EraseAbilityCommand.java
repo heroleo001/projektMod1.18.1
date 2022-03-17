@@ -76,6 +76,7 @@ public class EraseAbilityCommand {
             player.removeEffect(MobEffects.HEALTH_BOOST);
             player.removeEffect(MobEffects.DAMAGE_BOOST);
             player.removeEffect(MobEffects.MOVEMENT_SPEED);
+            
             player.getPersistentData().putBoolean(WeebQuirks.MOD_ID + "flameActive", false);
             WeebQuirks.createLog("Ability Erased.");
             System.out.println("5");

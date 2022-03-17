@@ -13,6 +13,7 @@ public class HammerItem extends DiggerItem {
         super(0f, 0f, Tiers.IRON, ModTags.Blocks.HAMMER_MINEABLES, builder);
     }
 
+    @SuppressWarnings("deprecation")
     @Override
     public void onDestroyed(ItemEntity pItemEntity) {
         if (!pItemEntity.level.isClientSide) {
@@ -32,6 +33,9 @@ public class HammerItem extends DiggerItem {
             worldIn.destroyBlock(pos.north().below(), true);
             worldIn.destroyBlock(pos.south().above(), true);
             worldIn.destroyBlock(pos.south().below(), true);
+
+
+
         }
     }
 }

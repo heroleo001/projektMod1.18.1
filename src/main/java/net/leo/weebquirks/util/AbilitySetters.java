@@ -66,6 +66,7 @@ public class AbilitySetters {
             player.removeEffect(MobEffects.MOVEMENT_SPEED);
             player.removeEffect(MobEffects.DOLPHINS_GRACE);
             player.removeEffect(MobEffects.JUMP);
+            player.removeEffect(MobEffects.INVISIBILITY);
             player.getPersistentData().putBoolean(WeebQuirks.MOD_ID + "flameActive", false);
             WeebQuirks.createLog("Ability Erased.");
             System.out.println("5");
